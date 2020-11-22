@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Reserva Victoria";
+    ViewBag.TitlePag = "Listado de Reserva";
+    Layout = "~/Views/Shared/_Plantilla.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Nueva Reserva ", "Crear")
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Fecha checkin</th>
+            <th>Num. día</th>
+            <th>Fecha checkout</th>
+            <th>Costo total</th>
+            <th>Habitación</th>
+            <th>Cliente</th>
+            <th>Accion</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.FechaInTxt</td>
+                <td>@item.numdias</td>
+                <td>@item.FechaOutTxt</td>
+                <td>$ @item.total.ToString()</td>
+                <td>@item.NumValordia</td>
+                <td>@item.NombreCliente</td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.idreserva })
+                    @Html.ActionLink("Eliminar ", "Borrar", new { id = item.idreserva })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

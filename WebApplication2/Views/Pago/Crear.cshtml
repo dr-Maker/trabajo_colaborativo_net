@@ -1,0 +1,37 @@
+﻿@model Models.PagoModelo
+@{
+    ViewBag.Title = "Crear";
+    ViewBag.TitlePag = "Crear Pago";
+    Layout = "~/Views/Shared/_Plantilla.cshtml";
+
+    var reservas = new List<SelectListItem>();
+    reservas.Add(new SelectListItem() { Text = "seleccione ", Value = "" });
+    foreach (var item in ViewBag.Reservas)
+    {
+        reservas.Add(new SelectListItem() { Text = item.texto, Value = item.valor });
+    }
+
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+    <div>
+        <label>reserva:</label>
+        @Html.DropDownListFor( model => model.idreserva,
+       (List<SelectListItem>)reservas,
+        new { @required = true })
+    </div>
+
+
+    <div >
+        <label>Monto pago: </label>
+        @Html.TextBoxFor( model => model.montopago,
+       new  { @required=true})
+    </div>
+
+    <div>
+        <input type="submit" value="Grabar" />
+    </div>
+}
+

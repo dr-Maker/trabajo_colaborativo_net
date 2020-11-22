@@ -1,0 +1,39 @@
+﻿@model Models.ReservaModelo
+@{
+    ViewBag.Title = "Borrar";
+    ViewBag.TitlePag = "Borrar Reserva";
+    Layout = "~/Views/Shared/_Plantilla.cshtml";
+
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div>
+        <label>Cliente:</label>
+        @Html.TextBoxFor( model => model.idcliente,
+        new { @readonly = true })
+    </div>
+
+    <div>
+        <label>Habitaciones:</label>
+        @Html.TextBoxFor( model => model.idhabitacion,
+        new { @readonly = true })
+    </div>
+
+    <div>
+        <label>Fecha ingreso</label>
+        @Html.TextBoxFor( model => model.fecha,
+       new  { @readonly = true })
+    </div>
+
+    <div class="form-group">
+        <label>Fecha Salida</label>
+        @Html.TextBoxFor( model => model.fechaout,
+       new  { @readonly = true })
+    </div>
+
+
+    <div>
+        <input type="submit" value="Borrar" />
+    </div>
+}

@@ -1,0 +1,28 @@
+﻿@model Models.PagoModelo
+@{
+    ViewBag.Title = "Borrar";
+    ViewBag.TitlePag = "Borrar Pago";
+    Layout = "~/Views/Shared/_Plantilla.cshtml";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+    <div>
+        <label>reserva:</label>
+        @Html.TextBoxFor( model => model.idreserva,
+        new { @readonly = true })
+    </div>
+
+
+    <div>
+        <label>Monto pago: </label>
+        @Html.TextBoxFor( model => model.montopago,
+       new  { @readonly = true})
+    </div>
+
+    <div>
+        <input type="submit" value="Borrar" />
+    </div>
+}
+
